@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .audio-wrapper {
+      background: #ffffffcc;
+      border-radius: 24px;
+      box-shadow: 0 4px 16px #0001, 0 1.5px 8px #0002;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 210px;
+      max-width: 400px;
+      width: 95vw;
+    }
+    audio {
+      width: 100%;
+      min-width: 170px;
+      max-width: 370px;
+      background: transparent;
+      border-radius: 20px;
+      outline: none;
+      margin: 0;
+      box-shadow: none;
+    }
+    /* Hide the download button in Chrome (if any) */
+    audio::-webkit-media-controls-enclosure {
+      border-radius: 20px;
+      background-color: #f5f7fa;
+      box-shadow: none;
+    }
+    audio::-webkit-media-controls-panel {
+      background: #f5f7fa;
+      border-radius: 20px;
+    }
+  </style>
+</head>
 <body>
-  <audio controls style="width:100%;">
-    <source src="ShapeOfYou.mp3" type="audio/mpeg">
-    Nhạc không phát được trên trình duyệt này.
-  </audio>
+  <div class="audio-wrapper">
+    <audio id="player" controls>
+      <source src="ShapeOfYou.mp3" type="audio/mpeg" />
+    </audio>
+    
+  </div>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<script>
+  const player = new Plyr('audio', { controls: ['play', 'progress', 'current-time', 'mute', 'volume'] });
+</script>
+
 </body>
 </html>
